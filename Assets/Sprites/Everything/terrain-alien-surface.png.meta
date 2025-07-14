@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 4f53fd7bdef42794c9927cc8cea4cea2
 TextureImporter:
   internalIDToNameTable:
@@ -7,6 +8,13 @@ TextureImporter:
     second: terrain-alien-surface_0
   externalObjects: {}
   serializedVersion: 13
+=======
+guid: 6c43b90e23a6633499a14cafff66c4c6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+>>>>>>> 9d7d1011efa658c637a1c1ff82f4631a5ae8d748
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -23,12 +31,18 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+<<<<<<< HEAD
     flipGreenChannel: 0
+=======
+>>>>>>> 9d7d1011efa658c637a1c1ff82f4631a5ae8d748
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+<<<<<<< HEAD
   ignoreMipmapLimit: 0
+=======
+>>>>>>> 9d7d1011efa658c637a1c1ff82f4631a5ae8d748
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -37,16 +51,26 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: 1
     aniso: 1
     mipBias: 0
+=======
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+>>>>>>> 9d7d1011efa658c637a1c1ff82f4631a5ae8d748
     wrapU: 1
     wrapV: 1
     wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   spriteMode: 2
+=======
+  spriteMode: 1
+>>>>>>> 9d7d1011efa658c637a1c1ff82f4631a5ae8d748
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -67,12 +91,19 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+<<<<<<< HEAD
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
+=======
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+>>>>>>> 9d7d1011efa658c637a1c1ff82f4631a5ae8d748
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -80,12 +111,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
+=======
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+>>>>>>> 9d7d1011efa658c637a1c1ff82f4631a5ae8d748
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -93,11 +132,15 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD
     ignorePlatformSupport: 0
+=======
+>>>>>>> 9d7d1011efa658c637a1c1ff82f4631a5ae8d748
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
+<<<<<<< HEAD
     sprites:
     - serializedVersion: 2
       name: terrain-alien-surface_0
@@ -126,17 +169,30 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 
+=======
+    sprites: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+>>>>>>> 9d7d1011efa658c637a1c1ff82f4631a5ae8d748
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
+<<<<<<< HEAD
     spriteCustomMetadata:
       entries: []
     nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
+=======
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+>>>>>>> 9d7d1011efa658c637a1c1ff82f4631a5ae8d748
   userData: 
   assetBundleName: 
   assetBundleVariant: 
