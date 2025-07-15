@@ -1,6 +1,7 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Drive : MonoBehaviour
 {
@@ -9,22 +10,44 @@ public class Drive : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private Rigidbody2D carRb;
 
-    private float moveInput;
+    // UI Buttons (assign in Inspector)
+    [SerializeField] private Button brakeButton;
+    [SerializeField] private Button gasButton;
 
     // Win UI or logic (assign in Inspector if needed)
     [SerializeField] private GameObject winPanel;
 
+    private float moveInput;
     private bool hasWon = false;
 
     public bool IsVehicleMoving()
     {
-        return Mathf.Abs(moveInput) > 0.01f; // Example logic to determine if the vehicle is moving
+        return Mathf.Abs(moveInput) > 0.01f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (hasWon) return;
+
+        // Simulate button press/release for Brake (A) and Gas (D)
+        if (brakeButton != null)
+        {
+            var brakePointer = new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current);
+            if (Input.GetKeyDown(KeyCode.A))
+                brakeButton.OnPointerDown(brakePointer);
+            if (Input.GetKeyUp(KeyCode.A))
+                brakeButton.OnPointerUp(brakePointer);
+        }
+        if (gasButton != null)
+        {
+            var gasPointer = new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current);
+            if (Input.GetKeyDown(KeyCode.D))
+                gasButton.OnPointerDown(gasPointer);
+            if (Input.GetKeyUp(KeyCode.D))
+                gasButton.OnPointerUp(gasPointer);
+        }
+
+        // Optional: set moveInput for car movement
         moveInput = Input.GetAxis("Horizontal");
     }
 
@@ -56,13 +79,11 @@ public class Drive : MonoBehaviour
         {
             winPanel.SetActive(true);
         }
-        Time.timeScale = 0f; // Pause the game
-        // Optionally stop the car
+        Time.timeScale = 0f;
         if (carRb != null)
         {
             carRb.linearVelocity = Vector2.zero;
             carRb.angularVelocity = 0f;
         }
-        // Add more win logic here if needed
     }
 }

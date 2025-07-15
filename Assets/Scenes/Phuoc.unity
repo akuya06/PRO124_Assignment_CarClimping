@@ -203,8 +203,8 @@ MonoBehaviour:
   backTire: {fileID: 1542879191}
   speed: 5
   carRb: {fileID: 0}
-  brakeButton: {fileID: 1353715780}
-  gasButton: {fileID: 1339938836}
+  brakeButton: {fileID: 1339938836}
+  gasButton: {fileID: 1353715780}
   winPanel: {fileID: 1912660817}
 --- !u!235 &68709023
 WheelJoint2D:
@@ -1659,7 +1659,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1339938837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 68709022}
+        m_TargetAssemblyTypeName: Drive, Assembly-CSharp
+        m_MethodName: OnGasButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 68709022}
+        m_TargetAssemblyTypeName: Drive, Assembly-CSharp
+        m_MethodName: OnGasButtonReleased
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!114 &1339938837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,13 +1805,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 68709019}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 68709022}
+        m_TargetAssemblyTypeName: Drive, Assembly-CSharp
+        m_MethodName: OnBrakeButtonReleased
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
