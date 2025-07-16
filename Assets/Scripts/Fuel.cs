@@ -51,6 +51,7 @@ public class Fuel : MonoBehaviour
         if (currentFuel <= 0f)
         {
             GameOver();
+            Time.timeScale = 0f; // Stop the game when out of fuel
         }
     }
 
