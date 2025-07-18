@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Phuoc.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Menu.unity
+    guid: 1adf686635c317b42ade85ffc062aa9e
+  - enabled: 1
+    path: Assets/Scenes/Map1.unity
+    guid: f22380ec9c82f9347b5469630c5166bf
+  - enabled: 1
+    path: Assets/Scenes/Manh.unity
+    guid: b48d5ecf2c5238f4fb84042a81360d7e
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
