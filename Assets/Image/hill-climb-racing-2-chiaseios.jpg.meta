@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hill-climb-racing-2-chiaseios_0: -3779562531736374760
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
