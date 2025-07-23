@@ -221,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 4237026564187191857}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.779, y: -0.504, z: 0}
+  m_LocalPosition: {x: -0.788, y: -0.578, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -549,8 +549,9 @@ GameObject:
   - component: {fileID: 3769276480536842901}
   - component: {fileID: 8089436413967550876}
   - component: {fileID: 4818992704934642726}
+  - component: {fileID: 6790475897842639784}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player(Car)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -589,7 +590,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 2
-  m_LinearDamping: 0
+  m_LinearDamping: 1
   m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -617,8 +618,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontTire: {fileID: 4136471564065638715}
   backTire: {fileID: 6134305239991977227}
-  speed: 5
-  carRb: {fileID: 0}
+  speed: 250
+  carRb: {fileID: 8854681992817755926}
   brakeButton: {fileID: 0}
   gasButton: {fileID: 0}
   winPanel: {fileID: 0}
@@ -637,11 +638,11 @@ WheelJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0.807, y: -0.532}
+  m_Anchor: {x: 0.807, y: -0.578}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.7
-    m_Frequency: 2
+    m_DampingRatio: 0.3
+    m_Frequency: 3.5
     m_Angle: 90
   m_UseMotor: 0
   m_Motor:
@@ -662,11 +663,11 @@ WheelJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.779, y: -0.504}
+  m_Anchor: {x: -0.788, y: -0.578}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Suspension:
-    m_DampingRatio: 0.7
-    m_Frequency: 2
+    m_DampingRatio: 0.3
+    m_Frequency: 3.5
     m_Angle: 90
   m_UseMotor: 0
   m_Motor:
@@ -690,6 +691,24 @@ MonoBehaviour:
   drive: {fileID: 6198801017869704630}
   fuelBar: {fileID: 0}
   gameOverPanel: {fileID: 0}
+--- !u!114 &6790475897842639784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5492606577135249720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f188d6dc92c3e12409c4b204a933b71e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefab: {fileID: 0}
+  player: {fileID: 7683167324573949092}
+  spawnDistance: 100
+  spawnHeight: 10
+  minXOffset: 3
+  maxXOffset: 6
 --- !u!1 &6934764445359307010
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,7 +862,7 @@ Transform:
   m_GameObject: {fileID: 7091589773667089160}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.807, y: -0.532, z: 0}
+  m_LocalPosition: {x: 0.807, y: -0.578, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
