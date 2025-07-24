@@ -1,53 +1,107 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
-    // Biến để lưu trữ trạng thái tạm dừng
     private bool isPaused = false;
 
-    // Hàm này sẽ được gọi khi nhấn phím ESC
+    public GameObject pauseImage; // Gán Image pause game trong Inspector
+    public Button resumeButton;
+    public Button restartButton;
+    public Button quitButton;
+    public float slideDuration = 0.3f; // Thời gian hiệu ứng slide
+
+    private RectTransform pauseRect;
+    private Vector2 hiddenPos;
+    private Vector2 shownPos;
+    private Coroutine slideCoroutine;
+
+    private void Start()
+    {
+        pauseRect = pauseImage.GetComponent<RectTransform>();
+        shownPos = pauseRect.anchoredPosition;
+        hiddenPos = shownPos + new Vector2(0, pauseRect.rect.height); // Ẩn lên trên
+
+        pauseRect.anchoredPosition = hiddenPos;
+        pauseImage.SetActive(false);
+
+        if (resumeButton != null)
+            resumeButton.onClick.AddListener(ResumeGame);
+        if (restartButton != null)
+            restartButton.onClick.AddListener(RestartGame);
+        if (quitButton != null)
+            quitButton.onClick.AddListener(QuitGame);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
             {
-                // Tiếp tục game
                 ResumeGame();
             }
             else
             {
-                // Dừng game và chuyển sang scene pause
                 PauseGame();
             }
         }
     }
 
-    // Hàm để dừng game và chuyển sang màn hình pause
     public void PauseGame()
     {
         isPaused = true;
-        Time.timeScale = 0f;  // Dừng thời gian game
-        SceneManager.LoadScene("TamDung", LoadSceneMode.Additive); // Tải màn hình pause (PauseScene)
+        Time.timeScale = 0f;
+        if (pauseImage != null)
+        {
+            pauseImage.SetActive(true);
+            StartSlide(true);
+        }
     }
 
-    // Hàm để tiếp tục game khi bấm "Tiếp tục"
     public void ResumeGame()
     {
         isPaused = false;
-        Time.timeScale = 1f; // Tiếp tục thời gian game
-        SceneManager.UnloadSceneAsync("TamDung"); // Tắt màn hình pause (PauseScene)
+        Time.timeScale = 1f;
+        if (pauseImage != null)
+        {
+            StartSlide(false);
+        }
     }
 
-    // Hàm để chơi lại từ đầu (reload lại game scene)
+    private void StartSlide(bool slideDown)
+    {
+        if (slideCoroutine != null)
+            StopCoroutine(slideCoroutine);
+        slideCoroutine = StartCoroutine(SlidePauseImage(slideDown));
+    }
+
+    private System.Collections.IEnumerator SlidePauseImage(bool slideDown)
+    {
+        float elapsed = 0f;
+        Vector2 start = slideDown ? hiddenPos : shownPos;
+        Vector2 end = slideDown ? shownPos : hiddenPos;
+
+        while (elapsed < slideDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float t = Mathf.Clamp01(elapsed / slideDuration);
+            pauseRect.anchoredPosition = Vector2.Lerp(start, end, t);
+            yield return null;
+        }
+        pauseRect.anchoredPosition = end;
+        if (!slideDown)
+            pauseImage.SetActive(false);
+    }
+
     public void RestartGame()
     {
-        Time.timeScale = 1f; // Đảm bảo game tiếp tục bình thường
-        SceneManager.LoadScene("Map1"); // Chuyển về scene game ban đầu
+        Time.timeScale = 1f;
+        string currentScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentScene);
     }
 
-    // Hàm để thoát game (nếu cần)
     public void QuitGame()
     {
         Application.Quit();
