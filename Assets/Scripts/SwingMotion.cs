@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement; // Thêm để load lại scene hoặc chuyển scene
 
 public class SwingMotion : MonoBehaviour
 {
@@ -20,5 +21,16 @@ public class SwingMotion : MonoBehaviour
 
         // Áp dụng góc quay mới vào đối tượng
         transform.rotation = Quaternion.Euler(initialRotation.x, initialRotation.y, initialRotation.z + swingAngle);
+    }
+
+    // Xử lý va chạm với nhân vật
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Head")) // Đảm bảo nhân vật có tag là "Player"
+        {
+            // Thực hiện logic game thua, ví dụ load lại scene hiện tại
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            // Hoặc có thể gọi hàm GameOver() nếu bạn có hệ thống quản lý game
+        }
     }
 }
