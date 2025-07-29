@@ -15,15 +15,13 @@ public class GameOver : MonoBehaviour
             mainMenuButton.onClick.AddListener(OnMainMenuClicked);
     }
 
-    private void OnRestartClicked()
+    public void OnRestartClicked()
     {
-        // Tải lại scene hiện tại
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void OnMainMenuClicked()
+    public void OnMainMenuClicked()
     {
-        // Chuyển về scene MainMenu (đảm bảo scene này đã có trong Build Settings)
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Menu");
     }
 }
