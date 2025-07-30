@@ -1094,6 +1094,7 @@ GameObject:
   - component: {fileID: 3348121842952506997}
   - component: {fileID: 5670597857862605723}
   - component: {fileID: 4344428020415703326}
+  - component: {fileID: -3770087767210331057}
   m_Layer: 0
   m_Name: "S\u1EEDa Mot"
   m_TagString: Untagged
@@ -1240,6 +1241,24 @@ MonoBehaviour:
   drive: {fileID: 7210940074672817308}
   fuelBar: {fileID: 0}
   gameOverPanel: {fileID: 0}
+--- !u!114 &-3770087767210331057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478162895708471955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c88cdecfae56e24f82259db2e07c818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleSource: {fileID: 0}
+  accelerationSource: {fileID: 0}
+  constantSource: {fileID: 0}
+  carRigidbody: {fileID: 0}
+  minPitch: 0.8
+  maxPitch: 2
 --- !u!1 &8372577292842329013
 GameObject:
   m_ObjectHideFlags: 0
