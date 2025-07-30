@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      long_wood_spike_0: 3426655137515685032
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
