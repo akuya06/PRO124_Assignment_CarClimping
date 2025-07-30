@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      small_metal_spike_0: -5934350658489666380
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
