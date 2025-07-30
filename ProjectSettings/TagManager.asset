@@ -8,7 +8,6 @@ TagManager:
   - Head
   - Ground
   - Bot
-  - Trap
   layers:
   - Default
   - TransparentFX

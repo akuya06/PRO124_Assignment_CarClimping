@@ -5,7 +5,6 @@ public class SwingMotion : MonoBehaviour
 {
     public float speed = 2.0f;  // Tốc độ lắc
     public float angle = 30.0f; // Góc lắc tối đa (độ)
-    public GameObject gameOverPanel; // Kéo GameOverPanel từ Inspector vào đây
 
     private Vector3 initialRotation;
 
@@ -13,8 +12,6 @@ public class SwingMotion : MonoBehaviour
     {
         // Lưu lại góc quay ban đầu của đối tượng
         initialRotation = transform.rotation.eulerAngles;
-        if (gameOverPanel != null)
-            gameOverPanel.SetActive(false); // Ẩn panel khi bắt đầu
     }
 
     void Update()
@@ -29,13 +26,11 @@ public class SwingMotion : MonoBehaviour
     // Xử lý va chạm với nhân vật
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Head"))
+        if (other.CompareTag("Head")) // Đảm bảo nhân vật có tag là "Player"
         {
-            Debug.Log("Collision with Head detected!");
-            if (gameOverPanel != null)
-                gameOverPanel.SetActive(true);
-            else
-                Debug.LogWarning("GameOverPanel is not assigned!");
+            // Thực hiện logic game thua, ví dụ load lại scene hiện tại
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            // Hoặc có thể gọi hàm GameOver() nếu bạn có hệ thống quản lý game
         }
     }
 }
