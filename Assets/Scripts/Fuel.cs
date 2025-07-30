@@ -85,6 +85,10 @@ public class Fuel : MonoBehaviour
         {
             GameOver(); // Game over if body hits the ground
         }
+        else if (other.CompareTag("Trap"))
+        {
+            GameOver(); // Game over if head hits the ground
+        }
     }
 
     private void GameOver()
