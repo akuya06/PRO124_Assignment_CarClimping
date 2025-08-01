@@ -15,13 +15,24 @@ public class GameOver : MonoBehaviour
             mainMenuButton.onClick.AddListener(OnMainMenuClicked);
     }
 
+    void Update()
+    {
+        // Bấm phím R để restart
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            OnRestartClicked();
+        }
+    }
+
     public void OnRestartClicked()
     {
+        //Time.timeScale = 1f; // Reset time scale trước khi load scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnMainMenuClicked()
     {
+        //Time.timeScale = 1f; // Reset time scale trước khi load scene
         SceneManager.LoadScene("Menu");
     }
 }
