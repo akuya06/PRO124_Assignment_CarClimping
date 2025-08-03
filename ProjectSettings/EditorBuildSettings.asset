@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TamDung.unity
     guid: 935235fd635097b4c98dc07c0915b35a
   - enabled: 1
-    path: Assets/Scenes/Map1.unity
+    path: Assets/Scenes/Map3.unity
     guid: f22380ec9c82f9347b5469630c5166bf
   - enabled: 1
     path: Assets/Scenes/Map2.unity

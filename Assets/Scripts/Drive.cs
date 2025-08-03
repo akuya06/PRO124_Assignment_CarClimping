@@ -7,8 +7,9 @@ public class Drive : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D frontTire;
     [SerializeField] private Rigidbody2D backTire;
-    [SerializeField] private float speed = 150f;
+    [SerializeField] public float speed = 150f;
     [SerializeField] private Rigidbody2D carRb;
+    public float airControlStrength = 2.0f; // Tăng giá trị này để xe xoay mạnh hơn
 
     // UI Buttons (assign in Inspector)
     [SerializeField] private Button brakeButton;
@@ -64,8 +65,14 @@ public class Drive : MonoBehaviour
     void FixedUpdate()
     {
         if (hasWon) return;
+
+        // Luôn cho phép điều khiển bánh xe
         frontTire.AddTorque(moveInput * speed * Time.fixedDeltaTime);
         backTire.AddTorque(moveInput * speed * Time.fixedDeltaTime);
+
+        // Luôn cho phép điều khiển xoay thân xe (mid-air control)
+        
+        carRb.AddTorque(-moveInput * speed * airControlStrength * Time.fixedDeltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
