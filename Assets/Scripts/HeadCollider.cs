@@ -4,6 +4,7 @@ public class HeadCollider : MonoBehaviour
 {
     private Fuel fuelScript;
 
+    [System.Obsolete]
     private void Start()
     {
         // Find the Fuel script in the scene (adjust if needed)
