@@ -78,7 +78,7 @@ public class Fuel : MonoBehaviour
 
         if (other.CompareTag("Fuel"))
         {
-            AddFuel(20f); // Increase fuel by 20 units (adjust as needed)
+            AddFuel(50f); // Increase fuel by 20 units (adjust as needed)
             Destroy(other.gameObject); // Remove the fuel pickup from the scene
         }
         else if (other.CompareTag("Ground"))
