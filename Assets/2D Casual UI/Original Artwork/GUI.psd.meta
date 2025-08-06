@@ -50,7 +50,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+
   spriteMode: 2
+
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -257,6 +259,7 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+
     outline: []
     customData: 
     physicsShape: []
@@ -270,6 +273,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
+
     nameFileIdTable:
       GUI_0: 80084085
       GUI_1: -610814889
@@ -278,6 +282,7 @@ TextureImporter:
       GUI_4: 794475897
       GUI_5: -1391841344
       GUI_6: -1356584302
+
   mipmapLimitGroupName: 
   pSDRemoveMatte: 1
   userData: 
