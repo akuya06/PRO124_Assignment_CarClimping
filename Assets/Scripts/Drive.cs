@@ -7,8 +7,9 @@ public class Drive : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D frontTire;
     [SerializeField] private Rigidbody2D backTire;
-    [SerializeField] private float speed = 5f;
+    [SerializeField] public float speed = 150f;
     [SerializeField] private Rigidbody2D carRb;
+    public float airControlStrength = 2.0f; // Tăng giá trị này để xe xoay mạnh hơn
 
     // UI Buttons (assign in Inspector)
     [SerializeField] private Button brakeButton;
@@ -19,47 +20,59 @@ public class Drive : MonoBehaviour
 
     private float moveInput;
     private bool hasWon = false;
+    private bool isGasPressed = false;
+    private bool isBrakePressed = false;
 
     public bool IsVehicleMoving()
     {
         return Mathf.Abs(moveInput) > 0.01f;
     }
 
+    public void OnGasButtonPressed()
+    {
+        isGasPressed = true;
+    }
+
+    public void OnBrakeButtonPressed()
+    {
+        isBrakePressed = true;
+    }
+
+    public void OnButtonReleased()
+    {
+        isGasPressed = false;
+        isBrakePressed = false;
+    }
+
     void Update()
     {
         if (hasWon) return;
 
-        // Simulate button press/release for Brake (A) and Gas (D)
-        if (brakeButton != null)
-        {
-            var brakePointer = new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current);
-            if (Input.GetKeyDown(KeyCode.A))
-                brakeButton.OnPointerDown(brakePointer);
-            if (Input.GetKeyUp(KeyCode.A))
-                brakeButton.OnPointerUp(brakePointer);
-        }
-        if (gasButton != null)
-        {
-            var gasPointer = new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current);
-            if (Input.GetKeyDown(KeyCode.D))
-                gasButton.OnPointerDown(gasPointer);
-            if (Input.GetKeyUp(KeyCode.D))
-                gasButton.OnPointerUp(gasPointer);
-        }
+        // Xử lý logic Gas/Brake cho cả phím và nút UI
+        bool gas = isGasPressed || Input.GetKey(KeyCode.A);
+        bool brake = isBrakePressed || Input.GetKey(KeyCode.D);
 
-        // Optional: set moveInput for car movement
-        moveInput = Input.GetAxis("Horizontal");
+        if (gas && !brake)
+            moveInput = 1f;
+        else if (!gas && brake)
+            moveInput = -1f;
+        else
+            moveInput = 0f;
+
+        // Debug.Log("moveInput: " + moveInput);
     }
 
     void FixedUpdate()
     {
         if (hasWon) return;
-        Vector2 frontTireVelocity = frontTire.linearVelocity;
-        Vector2 backTireVelocity = backTire.linearVelocity;
-        frontTireVelocity.x = moveInput * speed;
-        backTireVelocity.x = moveInput * speed;
-        frontTire.linearVelocity = frontTireVelocity;
-        backTire.linearVelocity = backTireVelocity;
+
+        // Luôn cho phép điều khiển bánh xe
+        frontTire.AddTorque(moveInput * speed * Time.fixedDeltaTime);
+        backTire.AddTorque(moveInput * speed * Time.fixedDeltaTime);
+
+        // Luôn cho phép điều khiển xoay thân xe (mid-air control)
+        
+        carRb.AddTorque(-moveInput * speed * airControlStrength * Time.fixedDeltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -7,15 +7,17 @@ TagManager:
   - Fuel
   - Head
   - Ground
+  - Bot
+  - Trap
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Head
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Bot
   - 
   - 
   - 
