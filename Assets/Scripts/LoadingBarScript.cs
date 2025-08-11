@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
 
@@ -9,13 +8,12 @@ public class LoadingBarScript : MonoBehaviour
     [Header("UI References")]
     public Slider loadingBar; // Slider cho loading bar
     public TextMeshProUGUI percentageText; // Text để hiển thị phần trăm
-    
-    [Header("Scene Settings")]
-    public string sceneToLoad = "SceneName"; // Tên scene muốn tải
-    
+    public GameObject loadingScreen; // Loading screen GameObject để tắt
+
     [Header("Loading Settings")]
-    public float minimumLoadingTime = 2f; // Thời gian tải tối thiểu (để người dùng thấy loading bar)
-    
+    public float loadingDuration = 3f; // Thời gian loading (giả lập)
+    public float delayBeforeHiding = 0.5f; // Thời gian delay trước khi tắt loading screen
+
     private void Start()
     {
         // Kiểm tra null references
@@ -24,69 +22,102 @@ public class LoadingBarScript : MonoBehaviour
             Debug.LogError("Loading Bar chưa được gán trong Inspector!");
             return;
         }
-        
+
         if (percentageText == null)
         {
             Debug.LogError("Percentage Text chưa được gán trong Inspector!");
             return;
         }
-        
-        if (string.IsNullOrEmpty(sceneToLoad))
+
+        if (loadingScreen == null)
         {
-            Debug.LogError("Scene name chưa được nhập!");
-            return;
+            Debug.LogWarning("Loading Screen GameObject chưa được gán trong Inspector!");
         }
-        
-        // Bắt đầu tải scene
-        StartCoroutine(LoadSceneAsync());
+
+        // Đảm bảo loading screen được bật lúc bắt đầu
+        if (loadingScreen != null)
+        {
+            loadingScreen.SetActive(true);
+        }
+
+        // Bắt đầu quá trình loading (KHÔNG load scene)
+        StartCoroutine(SimulateLoadingOnly());
     }
 
-    private IEnumerator LoadSceneAsync()
+    private IEnumerator SimulateLoadingOnly()
     {
         float startTime = Time.time;
-        
-        // Tạo một yêu cầu tải scene
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneToLoad);
+        float progress = 0f;
 
-        if (operation == null)
+        // Reset UI
+        loadingBar.value = 0f;
+        percentageText.text = "0%";
+
+
+        // Simulate loading progress
+        while (progress < 1f)
         {
-            Debug.LogError($"Không thể tải scene: {sceneToLoad}. Kiểm tra tên scene và Build Settings!");
-            yield break;
-        }
-
-        // Không chuyển sang scene mới cho đến khi quá trình tải hoàn tất
-        operation.allowSceneActivation = false;
-
-        while (!operation.isDone)
-        {
-            // Cập nhật tiến trình tải (Unity báo cáo tối đa 0.9f khi allowSceneActivation = false)
-            float progress = Mathf.Clamp01(operation.progress / 0.9f);
-            
-            // Đảm bảo loading bar hiển thị trong thời gian tối thiểu
+            // Tính tiến trình dựa trên thời gian
             float elapsedTime = Time.time - startTime;
-            if (elapsedTime < minimumLoadingTime)
-            {
-                float timeProgress = elapsedTime / minimumLoadingTime;
-                progress = Mathf.Min(progress, timeProgress);
-            }
-            
+            progress = Mathf.Clamp01(elapsedTime / loadingDuration);
+
             // Cập nhật UI
             loadingBar.value = progress;
             percentageText.text = Mathf.FloorToInt(progress * 100) + "%";
 
-            // Nếu tải xong và đã đủ thời gian tối thiểu, chuyển sang scene mới
-            if (operation.progress >= 0.9f && elapsedTime >= minimumLoadingTime)
-            {
-                // Hiển thị 100% trước khi chuyển scene
-                loadingBar.value = 1f;
-                percentageText.text = "100%";
-                
-                yield return new WaitForSeconds(0.1f); // Delay nhỏ để người dùng thấy 100%
-                
-                operation.allowSceneActivation = true;
-            }
-
             yield return null;
         }
+
+        // Đảm bảo hiển thị 100%
+        loadingBar.value = 1f;
+        percentageText.text = "100%";
+
+
+        // Delay để người dùng thấy 100%
+        yield return new WaitForSeconds(delayBeforeHiding);
+
+        // Tắt loading screen (KHÔNG chuyển scene)
+        HideLoadingScreen();
+    }
+
+    /// <summary>
+    /// Tắt loading screen
+    /// </summary>
+    public void HideLoadingScreen()
+    {
+        if (loadingScreen != null)
+        {
+            loadingScreen.SetActive(false);
+        }
+        else
+        {
+            // Nếu không có loading screen được gán, tắt GameObject này
+            gameObject.SetActive(false);
+        }
+    }
+
+    /// <summary>
+    /// Hiển thị loading screen
+    /// </summary>
+    public void ShowLoadingScreen()
+    {
+        if (loadingScreen != null)
+        {
+            loadingScreen.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
+    }
+
+    /// <summary>
+    /// Restart loading process (CHỈ restart loading bar, không load scene)
+    /// </summary>
+    public void RestartLoading()
+    {
+        StopAllCoroutines();
+        ShowLoadingScreen();
+        StartCoroutine(SimulateLoadingOnly());
     }
 }

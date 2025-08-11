@@ -4658,7 +4658,7 @@ GameObject:
   - component: {fileID: 2018788068}
   - component: {fileID: 2018788067}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: MapSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

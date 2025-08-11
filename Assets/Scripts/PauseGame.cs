@@ -9,8 +9,11 @@ public class PauseManager : MonoBehaviour
     public GameObject pauseImage; // Gán Image pause game trong Inspector
     public Button resumeButton;
     public Button restartButton;
-    public Button quitButton;
+    public Button menuButton; // Đổi từ quitButton thành menuButton
     public float slideDuration = 0.3f; // Thời gian hiệu ứng slide
+
+    [Header("Menu Settings")]
+    public string menuSceneName = "Menu"; // Tên scene menu chính
 
     private RectTransform pauseRect;
     private Vector2 hiddenPos;
@@ -30,8 +33,8 @@ public class PauseManager : MonoBehaviour
             resumeButton.onClick.AddListener(ResumeGame);
         if (restartButton != null)
             restartButton.onClick.AddListener(RestartGame);
-        if (quitButton != null)
-            quitButton.onClick.AddListener(QuitGame);
+        if (menuButton != null)
+            menuButton.onClick.AddListener(GoToMenu); // Đổi từ QuitGame thành GoToMenu
     }
 
     void Update()
@@ -102,6 +105,16 @@ public class PauseManager : MonoBehaviour
         SceneManager.LoadScene(currentScene);
     }
 
+    public void GoToMenu()
+    {
+        Time.timeScale = 1f; // Đảm bảo time scale trở về bình thường
+
+
+        SceneManager.LoadScene("Menu");
+    }
+
+
+    // Giữ lại method QuitGame để tương thích ngược (nếu cần)
     public void QuitGame()
     {
         Application.Quit();

@@ -5782,8 +5782,9 @@ MonoBehaviour:
   pauseImage: {fileID: 397500794}
   resumeButton: {fileID: 0}
   restartButton: {fileID: 0}
-  quitButton: {fileID: 0}
+  menuButton: {fileID: 0}
   slideDuration: 0.3
+  menuSceneName: Menu
 --- !u!1001 &1193254448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7704,7 +7705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 464967661520480270, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 699431791330022417, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -7752,11 +7753,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1268535172149740844, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1268535172149740844, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2173220770587936749, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
       propertyPath: m_AnchoredPosition.x
