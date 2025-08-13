@@ -13,6 +13,9 @@ public class Fuel : MonoBehaviour
     // Reference to the UI Slider for fuel
     [SerializeField] private Slider fuelBar;
 
+    public AudioClip fuelPickupSound; // Sound to play when fuel is collected
+    public AudioClip hurtSound;
+
     // Game over UI or logic (assign in Inspector if needed)
     [SerializeField] private GameObject gameOverPanel;
 
@@ -88,6 +91,7 @@ public class Fuel : MonoBehaviour
         else if (other.CompareTag("Trap"))
         {
             GameOver(); // Game over if head hits the ground
+            SoundFXManager.instance.PlaySound(hurtSound, transform, 1f); // Play hurt sound
         }
     }
 

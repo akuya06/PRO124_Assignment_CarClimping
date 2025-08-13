@@ -190,6 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 104322707}
   - component: {fileID: 104322708}
+  - component: {fileID: 104322709}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -226,6 +227,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalCoins: 0
   coinText: {fileID: 1219824146}
+--- !u!114 &104322709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104322704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3930872e1895403468f016339a2ed96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sFxObj: {fileID: 5637355827065838535, guid: cb6f26a744838364ca0e340c840e3a1c, type: 3}
 --- !u!1 &130734299
 GameObject:
   m_ObjectHideFlags: 0
@@ -7558,6 +7572,10 @@ PrefabInstance:
       propertyPath: fuelBar
       value: 
       objectReference: {fileID: 790361431}
+    - target: {fileID: 4818992704934642726, guid: 284d97f1767f26e4b956b7d4be091829, type: 3}
+      propertyPath: hurtSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 86f0c2ded988cf942b7f8b18b437296a, type: 3}
     - target: {fileID: 4818992704934642726, guid: 284d97f1767f26e4b956b7d4be091829, type: 3}
       propertyPath: gameOverPanel
       value: 
