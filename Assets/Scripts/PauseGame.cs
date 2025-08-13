@@ -10,6 +10,7 @@ public class PauseManager : MonoBehaviour
     public Button resumeButton;
     public Button restartButton;
     public Button menuButton; // Đổi từ quitButton thành menuButton
+    public Button pauseResumeButton; // New toggle button for pause/resume
     public float slideDuration = 0.3f; // Thời gian hiệu ứng slide
 
     [Header("Menu Settings")]
@@ -35,20 +36,27 @@ public class PauseManager : MonoBehaviour
             restartButton.onClick.AddListener(RestartGame);
         if (menuButton != null)
             menuButton.onClick.AddListener(GoToMenu); // Đổi từ QuitGame thành GoToMenu
+        if (pauseResumeButton != null)
+            pauseResumeButton.onClick.AddListener(TogglePause); // Add toggle functionality
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
+            TogglePause();
+        }
+    }
+
+    public void TogglePause()
+    {
+        if (isPaused)
+        {
+            ResumeGame();
+        }
+        else
+        {
+            PauseGame();
         }
     }
 
