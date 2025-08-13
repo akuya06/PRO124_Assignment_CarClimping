@@ -387,15 +387,15 @@ MonoBehaviour:
     spawnRate: 60
   - prefab: {fileID: 755498885228474696, guid: 944265ee71aca7f459619c5eed8f12ca, type: 3}
     value: 25
-    spawnRate: 30
+    spawnRate: 45
   - prefab: {fileID: 3663089549175411086, guid: 63ac9b4e4d5df5046b211d49372f9a3f, type: 3}
     value: 100
-    spawnRate: 20
+    spawnRate: 10
   - prefab: {fileID: 9148366069515378104, guid: 984238158da3d2943a81bcfe5765e601, type: 3}
     value: 500
-    spawnRate: 10
+    spawnRate: 5
   player: {fileID: 0}
-  spawnInterval: 10
+  spawnInterval: 5
   minCoinsPerSpawn: 4
   maxCoinsPerSpawn: 6
   coinSpacing: 1.4
@@ -3964,7 +3964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6049044049484861899
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6341,7 +6341,7 @@ RectTransform:
   m_Father: {fileID: 2246248965142802639}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
