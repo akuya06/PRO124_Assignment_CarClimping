@@ -243,16 +243,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.32
---- !u!50 &68709020 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 8854681992817755926, guid: 284d97f1767f26e4b956b7d4be091829, type: 3}
-  m_PrefabInstance: {fileID: 6456214542025290521}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &68709021 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7683167324573949092, guid: 284d97f1767f26e4b956b7d4be091829, type: 3}
-  m_PrefabInstance: {fileID: 6456214542025290521}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &68709022 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6198801017869704630, guid: 284d97f1767f26e4b956b7d4be091829, type: 3}
@@ -3080,7 +3070,7 @@ PrefabInstance:
     - target: {fileID: 3390498598789271382, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
       propertyPath: _playerTrans
       value: 
-      objectReference: {fileID: 68709021}
+      objectReference: {fileID: 627591903}
     - target: {fileID: 4083643950164502104, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3096,7 +3086,7 @@ PrefabInstance:
     - target: {fileID: 4344511077539214886, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
       propertyPath: carRb
       value: 
-      objectReference: {fileID: 68709020}
+      objectReference: {fileID: 2037824903}
     - target: {fileID: 4393245535221504233, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
       propertyPath: m_Color.g
       value: 0.5476933
