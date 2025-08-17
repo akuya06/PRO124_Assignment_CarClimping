@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DeWatermark.ai_1754905637836_0: 7912610180039183525
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
