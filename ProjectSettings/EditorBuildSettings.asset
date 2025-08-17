@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map3.unity
     guid: f22380ec9c82f9347b5469630c5166bf
+  - enabled: 1
+    path: Assets/Scenes/Shopping.unity
+    guid: a93cce82806688a48a2333433fa5ce88
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
