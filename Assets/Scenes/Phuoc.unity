@@ -3073,12 +3073,28 @@ PrefabInstance:
       objectReference: {fileID: 627591903}
     - target: {fileID: 4083643950164502104, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289014565301307632, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
+      propertyPath: m_Color.b
+      value: 0.43867922
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289014565301307632, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
+      propertyPath: m_Color.g
+      value: 0.43867922
       objectReference: {fileID: 0}
     - target: {fileID: 4344511077539214886, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
       propertyPath: carRb
       value: 
       objectReference: {fileID: 2037824903}
+    - target: {fileID: 4393245535221504233, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5476933
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393245535221504233, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5330188
+      objectReference: {fileID: 0}
     - target: {fileID: 5139000492476662884, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3161,7 +3177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5393335897912176371, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5614827834233155572, guid: 57498999192e90643a86d30e7b23b4c4, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
